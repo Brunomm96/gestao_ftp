@@ -1,0 +1,89 @@
+<form class="form-horizontal" id="formUnidProd" name="formUnidProd">
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label for="tara">Id:</label>
+            <input type="number" class="form-control" id="id" name="id" placeholder="id" readonly >
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <label for="idOver">Id Unidade Pai:</label>
+                <br>
+                <div style="display: -webkit-inline-box;">
+                    <input type="number" class="form-control" id="idOver" name="idOver" placeholder="id unidade pai" readonly >
+                    <button type="button" class="btn btn-warning btn-lg btn-block" style="inline-size: -webkit-fill-available;" onclick="javascript:fMdlUnidProd()">
+                        ID PAI
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="code">Codigo:</label>
+            <input type="text" class="form-control" id="code" name="code" placeholder="Codigo" >
+        </div>
+        <div class="col-md-6">
+            <label for="name">Nome:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="nome" >
+        </div>
+        <div class="col-md-6">
+            <label for="abbreviation">Abreviação:</label>
+            <input type="text" class="form-control" id="abbreviation" name="abbreviation" placeholder="Abreviação" >
+        </div>
+        <div class="col-md-6">
+            <label for="description">Descrição:</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="Descrição" >
+        </div>
+        <div class="col-md-3">
+            <label for="idTableSetup">Id Tabela Setup:</label>
+            <input type="number" class="form-control" id="idTableSetup" name="idTableSetup" placeholder="Id Tabela Setup" >
+        </div>
+        <div class="col-md-5">
+            <label for="nameTableSetup">Nome Tabela Setup:</label>
+            <input type="text" class="form-control" id="nameTableSetup" name="nameTableSetup" placeholder="Nome Tabela Setup" >
+        </div>
+        <div class="col-md-4">
+            <label for="resourceERP">Recurso do ERP:</label>
+            <input type="text" class="form-control" id="resourceERP" name="resourceERP" placeholder="Recurso do ERP" >
+        </div>
+    </div>
+</form>
+<div class="modal" id="mdlUnidProd" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Consulta de Unidade de Produção</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="table-striped" style="overflow:auto;" id='mdlGroup' name="group">
+                <table class="display responsive nowrap" style="width:100%" id="tblUnidProd">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descrição</th>
+                           <th>Codigo</th>
+                           <th>Nome</th>
+                           <th>Abreviação</th>
+                           <th>Descrição</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick="javascript:fAddUnid()">Adicionar Unidade Pai </button>
+        </div>
+      </div>
+    </div>
+</div>
+<script>
+
+function fValidUnidProd(){
+    if(document.getElementById('idOver').value.length != 0 && document.getElementById('resourceERP').value.length === 0){
+        alert("Campo de Recurso ERP deve ser preenchido.")
+        return false;
+    }
+    return true;
+}
+</script>

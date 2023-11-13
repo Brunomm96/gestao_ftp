@@ -1,0 +1,208 @@
+<link rel="stylesheet" type="text/css" href="css/DataWake.css">
+
+<div class="row mt-5">
+    <form class="form-horizontal needs-validation"  id="formPU"  name="formPU">
+
+        <div class="row" style="align-self:flex-end;">
+            <div class="col-md-3">
+                <h4 class="text-light"> Informações Gerais</h4>
+            </div>
+        </div>
+        <div class="row g-3">
+
+            <div class="col-md-3">
+                <label for="produto">Cód. Produto</label>
+                <input type="text" class="form-control" id="produto" name="produto" placeholder="Produto" >
+            </div>
+            <div class="col-md-3">
+                <label for="temperatura1l">Temperatura1 Mínima do Molde:</label>
+                <input type="number" class="form-control" id="temperatura1l" name="temperatura1l" >
+            </div>
+            <div class="col-md-3">
+                <label for="temperatura1h">Temperatura1 Máxima do Molde:</label>
+                <input type="number" class="form-control" id="temperatura1h" name="temperatura1h" >
+            </div>
+
+            <div class="col-md-3">
+                <label for="temperatura2l">Temperatura2 Mínima do Molde:</label>
+                <input type="number" class="form-control" id="temperatura2l" name="temperatura2l" >
+            </div>
+            <div class="col-md-3">
+                <label for="temperatura2h">Temperatura2 Máxima do Molde:</label>
+                <input type="number" class="form-control" id="temperatura2h" name="temperatura2h">
+            </div>
+
+            <div class="col-md-3">
+                <label for="temperatura3l">Temperatura3 Mínima do Molde:</label>
+                <input type="number" class="form-control" id="temperatura3l" name="temperatura3l" >
+            </div>
+            <div class="col-md-3">
+                <label for="temperatura3h">Temperatura3 Máxima do Molde:</label>
+                <input type="number" class="form-control" id="temperatura3h" name="temperatura3h">
+            </div>            
+
+            <div class="col-md-3">
+                <label for="temperatura4l">Temperatura4 Mínima do Molde:</label>
+                <input type="number" class="form-control" id="temperatura4l" name="temperatura4l" >
+            </div>
+            <div class="col-md-3">
+                <label for="temperatura4h">Temperatura4 Máxima do Molde:</label>
+                <input type="number" class="form-control" id="temperatura4h" name="temperatura4h" >
+            </div>
+
+            
+        </div>
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label for="pressao1l">Pressão1 Mínima do Molde:</label>
+                <input type="number" class="form-control" id="pressao1l" name="pressao1l" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="pressao1h">Pressão1 Máxima do Molde:</label>
+                <input type="number" class="form-control" id="pressao1h" name="pressao1h" required>
+            </div>
+            <div class="col-md-3">
+                <label for="pressao2l">Pressão2 Mínima do Molde:</label>
+                <input type="number" class="form-control" id="pressao2l" name="pressao2l" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="pressao2h">Pressão2 Máxima do Molde:</label>
+                <input type="number" class="form-control" id="pressao2h" name="pressao2h" required>
+            </div>
+            <div class="col-md-3">
+                <label for="pressao3l">Pressão3 Mínima do Molde:</label>
+                <input type="number" class="form-control" id="pressao3l" name="pressao3l" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="pressao3h">Pressão3 Máxima do Molde:</label>
+                <input type="number" class="form-control" id="pressao3h" name="pressao3h" required>
+            </div>
+            <div class="col-md-3">
+                <label for="pressao4l">Pressão4 Mínima do Molde:</label>
+                <input type="number" class="form-control" id="pressao4l" name="pressao4l" required>
+            </div>
+            <div class="col-md-3">
+                <label for="pressao4h">Pressão4 Máxima do Molde:</label>
+                <input type="number" class="form-control" id="pressao4h" name="pressao4h" required>
+            </div>
+
+
+        </div>
+        
+        <div class="row g-3">
+
+            <div class="col-md-3">
+                <label for="tempo_cura">Tempo de Cura do Molde:</label>
+                <input type="number" class="form-control" id="tempo_cura" name="tempo_cura" required>
+            </div>
+            <div class="col-md-3">
+                <label for="nro_molde">Número do Molde:</label>
+                <input type="number" class="form-control" id="nro_molde" name="nro_molde" required>
+            </div>
+            <div class="col-md-3">
+                <label for="temperatura_circuitol">Temperatura Mínima do Circuito:</label>
+                <input type="number" class="form-control" id="temperatura_circuitol" name="temperatura_circuitol" required>
+            </div>
+            <div class="col-md-3">
+                <label for="temperatura_circuitoh">Temperatura Máxima do Circuito:</label>
+                <input type="number" class="form-control" id="temperatura_circuitoh" name="temperatura_circuitoh" required>
+            </div>
+            <div class="col-md-3">
+                <label for="pressao_circuitol">Pressão Mínima do Circuito:</label>
+                <input type="number" class="form-control" id="pressao_circuitol" name="pressao_circuitol" required>
+            </div>
+            <div class="col-md-3">
+                <label for="pressao_circuitoh">Pressão Máxima do Circuito:</label>
+                <input type="number" class="form-control" id="pressao_circuitoh" name="pressao_circuitoh" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_limpeza">Tempo Máximo para Limpeza do molde:</label>
+                <input type="number" class="form-control" id="tempo_limpeza" name="tempo_limpeza" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_desmoldante">Tempo Máximo para Passar Desmoldante:</label>
+                <input type="number" class="form-control" id="tempo_desmoldante" name="tempo_desmoldante" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_limpeza_desmold1">Tempo Máximo Limpeza Desmoldante 1:</label>
+                <input type="number" class="form-control" id="tempo_limpeza_desmold1" name="tempo_limpeza_desmold1" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_limpeza_desmold2">Tempo Máximo Limpeza Desmoldante 2:</label>
+                <input type="number" class="form-control" id="tempo_limpeza_desmold2" name="tempo_limpeza_desmold2" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_reg_pressao">Tempo Máximo Regulagem Pressão do Molde:</label>
+                <input type="number" class="form-control" id="tempo_reg_pressao" name="tempo_reg_pressao" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_injecao">Tempo Máximo para Injetar no Molde:</label>
+                <input type="number" class="form-control" id="tempo_injecao" name="tempo_injecao" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_abre_molde">Tempo Máximo  para Abertura do Molde:</label>
+                <input type="number" class="form-control" id="tempo_abre_molde" name="tempo_abre_molde" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_retira_peca">Tempo Máximo para Retirar a Peça do Molde:</label>
+                <input type="number" class="form-control" id="tempo_retira_peca" name="tempo_retira_peca" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_espera">Tempo Máximo de Espera para Injecao:</label>
+                <input type="number" class="form-control" id="tempo_espera" name="tempo_espera" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_injecaol">Tempo Minímo de Injecao:</label>
+                <input type="number" class="form-control" id="tempo_injecaol" name="tempo_injecaol" required>
+            </div>
+            <div class="col-md-3">
+                <label for="tempo_injecaoh">Tempo Máximo de Injecao:</label>
+                <input type="number" class="form-control" id="tempo_injecaoh" name="tempo_injecaoh" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="tamanho">Tamanho do Produto:</label>
+                <select id='tamanho' name="tamanho" class="form-select"  required>
+                    <option selected></option>
+                    <option value="PEQUENA">PEQUENA</option>
+                    <option value="MEDIA">MEDIA</option>
+                    <option value="GRANDE">GRANDE</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="fechamento">Fechamento do Molde:</label>
+                <select id='fechamento' name='fechamento' class="form-select" aria-label="SIM/NAO" required>
+                    <option selected></option>
+                    <option value="SIM">Sim</option>
+                    <option value="NAO">Não</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="pino">Pinos no Molde:</label>
+                <select id='pino' name="pino" class="form-select" required>
+                    <option selected></option>
+                    <option value="SIM">Sim</option>
+                    <option value="NAO">Não</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="tierline">Molde com Tierline:</label>
+                <select id='tierline' name="tierline" class="form-select" required>
+                    <option selected></option>
+                    <option value="SIM">Sim</option>
+                    <option value="NAO">Não</option>
+                </select>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+
+
+

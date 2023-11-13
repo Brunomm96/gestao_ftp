@@ -1,0 +1,158 @@
+<div class="row mt-4" style="padding-top: 2%;">
+    <form class="form-horizontal" id="formAPQP" name="formAPQP">
+
+        <div class="col-md-12">
+            <h4 class="text-light"> Cadastrar Projeto</h4>
+        </div>
+
+        <div class="row g-3" style="padding-top: 2%;">
+            <div class="col-md-3">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" id="id" name="id" placeholder="Número do ID" readonly>
+            </div>
+
+            <div class="col-md-3">
+                <label for="responsavel">Responsavel:</label>
+                <select id='responsavel' name='responsavel' class="form-select" aria-label="Responsáveis">
+                    <option selected></option>
+                    <option value="Igor">Igor</option>
+                    <option value="Rogerio">Rogerio</option>
+                    <option value="Thalita">Thalita</option>
+                    <option value="Thiago">Thiago</option>
+                    <option value="Jefferson">Jefferson</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="cliente">CLIENTE:</label>
+                <select id='cliente' name='cliente' class="form-select" aria-label="Clientes" required>
+                    <option selected></option>
+                    <option value="DAF">DAF</option>
+                    <option value="Faurecia">Faurecia</option>
+                    <option value="GM">GM</option>
+                    <option value="HPE">HPE</option>
+                    <option value="IVECO (CNH)">IVECO (CNH)</option>
+                    <option value="MAN">MAN</option>
+                    <option value="MBA">MBA</option>
+                    <option value="MBB">MBB</option>
+                    <option value="SCANIA">SCANIA</option>
+                    <option value="S-RIKO">S-RIKO</option>
+                    <option value="STELLANTIS">STELLANTIS</option>
+                    <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+                    <option value="VOLVO">VOLVO</option>
+                    <option value="IPA">IPA</option>
+                    <option value="NISSAN">NISSAN</option>
+                    <option value="VOSS">VOSS</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="ccliente">CÓDIGO CLIENTE:</label>
+                <input type="text" id="codigo_Cliente" name="codigo_Cliente" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="cparanoa">CÓDIGO PARANOÁ:</label>
+                <input type="text" id="codigo_Paranoa" name="codigo_Paranoa" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="nprojeto">NOME DO PROJETO:</label>
+                <input type="text" id="nome_Projeto" name="nome_Projeto" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="unidade_Negocio">UNIDADE DE NEGÓCIO:</label>
+                <select id='unidade_Negocio' name='unidade_Negocio' class="form-select" aria-label="Clientes" required>
+                    <option selected></option>
+                    <option value="Coxim">Coxim</option>
+                    <option value="Mang. Arrefecimento">Mang. Arrefecimento</option>
+                    <option value="Mang. Combustível">Mang. Combustível</option>
+                    <option value="Mang. Direção Hidráulica">Mang. Direção Hidráulica</option>
+                    <option value="Tap. Borracha">Tap. Borracha</option>
+                    <option value="Tap. PU">Tap. PU</option>
+                    <option value="Tap. TPO">Tap. TPO</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="tipo_Projeto">TIPO DE PROJETO:</label>
+                <select id='tipo_Projeto' name='tipo_Projeto' class="form-select" aria-label="Clientes" required>
+                    <option selected></option>
+                    <option value="Alteração">Alteração</option>
+                    <option value="Aumento de volume">Aumento de volume</option>
+                    <option value="Desenvolvimento">Desenvolvimento</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="tipo_Desvio">TIPO DE DESVIO:</label>
+                <select id='tipo_Desvio' name='tipo_Desvio' class="form-select" aria-label="Clientes" required>
+                    <option selected></option>
+                    <option value="IRW (CNH-Iveco)">IRW (CNH-Iveco)</option>
+                    <option value="PEP (MAN)">PEP (MAN)</option>
+                    <option value="SPE (Mercedes)">SPE (Mercedes)</option>
+                    <option value="JNV (MAN)">JNV (Man)</option>
+                    <option value="AWE (VW)">AWE (VW)</option>
+                    <option value="IAA (Stellantis)">IAA (Stellantis)</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="dlvendas">DATA DA LIBERAÇÃO DE VENDAS:</label>
+                <input type="date" id="data_Liberacao" name="data_Liberacao" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="tipo_Evento">TIPO DE EVENTO:</label>
+                <select id='tipo_Evento' name='tipo_Evento' class="form-select" aria-label="Tipo de Evento" required>
+                    <option selected></option>
+                    <option value="Amostra de montabilidade">Amostra de montabilidade</option>
+                    <option value="Amostra PPAP condicional">Amostra PPAP condicional</option>
+                    <option value="Amostra PPAP full">Amostra PPAP full</option>
+                    <option value="Amostras finalizadas">Amostras finalizadas</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="dafull">DATA DA APROVAÇÃO FULL:</label>
+                <input type="date" id="data_Full" name="data_Full" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="dafullreprograma">DATA FULL (REPROGRAMA):</label>
+                <input type="date" id="data_Reprograma" name="data_Reprograma" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="status_Projeto">STATUS DO PROJETO:</label>
+                <select id='status_Projeto' name='status_Projeto' class="form-select" aria-label="Status de Projeto"
+                    required>
+                    <option selected></option>
+                    <option value="Construção do ferramental">Construção do ferramental</option>
+                    <option value="Entrega de amostras">Entrega de amostras</option>
+                    <option value="Entregue para produção (PPAP Condicional)">Entregue para produção (PPAP Condicional)
+                    </option>
+                    <option value="Entregue para produção (PPAP Full)">Entregue para produção (PPAP Full)</option>
+                    <option value="Projeto Cancelado">Projeto Cancelado</option>
+                    <option value="Projeto Congelado">Projeto Congelado</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="dftferamental">DATA FICHA TÉCNICA DE FERRAMENTAL:</label>
+                <input type="date" id="data_Ficha" name="data_Ficha" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="sftferramental">STATUS FICHA TÉCNICA DE FERRAMENTAL:</label>
+                <input type="text" id='status_Ficha' name='status_Ficha' class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="obs">OBS:</label>
+                <input type="text" id="obs" name="obs" class="form-control">
+            </div>
+        </div>
+    </form>
+</div>

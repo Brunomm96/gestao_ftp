@@ -1,0 +1,114 @@
+<script src="js/datawake.js"></script>
+<style type="text/css">
+    #loading {
+        display: none;
+    }
+</style>
+<input type="text" name="username" id="username" class="text" value="admin" hidden/>
+<input type="password" name="password" id="password" class="text" value="par@dk#21" hidden/>
+<div class="row">
+    <div class="accordion" id="listaFormularios">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTPO">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTPO" aria-expanded="true" aria-controls="collapseTPO">
+                FTP Termoformadora TPO
+            </button>
+            </h2>
+            <div id="collapseTPO" class="accordion-collapse collapse show" aria-labelledby="headingTPO" data-bs-parent="#listaFormularios">
+                <div class="accordion-body">
+                    <p>Gestão de folhas de trabalho padronizado ( visualização, edição, exclusão e inclusão), clique no botão abaixo.</p>
+                    <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#listaFtps" id="ftpotable">Formulário</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingMangueiras">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMangueiras" aria-expanded="true" aria-controls="collapseMangueiras">
+                FTP Extrusora Mangueiras
+            </button>
+            </h2>
+            <div id="collapseMangueiras" class="accordion-collapse collapse" aria-labelledby="headingMangueiras" data-bs-parent="#listaFormularios">
+                <div class="accordion-body">
+                    <p>Gestão de folhas de trabalho padronizado ( visualização, edição, exclusão e inclusão), clique no botão abaixo.</p>
+                    <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#listaFtps" id="fMangtable">Formulário</button>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingGaiolas">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGaiolas" aria-expanded="true" aria-controls="collapseGaiolas">
+                FTP Cadastro de Gaiolas\Caixas
+            </button>
+            </h2>
+            <div id="collapseGaiolas" class="accordion-collapse collapse" aria-labelledby="headingGaiolas" data-bs-parent="#listaFormularios">
+                <div class="accordion-body">
+                    <p>Gestão do Cadastro de Gaiolas/Caixas ( visualização, edição, exclusão e inclusão), clique no botão abaixo.</p>
+                    <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#listaFtps" id="fGaitable">Formulário</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal " id="listaFtps">
+    <div class="modal-dialog  modal-fullscreen modal-dialog-scrollable">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Listas Folha de Trabalho Padronizado</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="modaWindow">
+                <div class="table-striped" style="overflow:auto;" id='modalList'>
+                    <table class="display" id="tabLista">
+                        <thead>
+
+                        </thead>
+
+                    </table>
+
+
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <div class="alert alert-success" role="alert" id='alertRegSelec' name='alertRegSelec'>
+                        Selecione um registro para liberar o acesso as ações dos botões.
+                    </div>
+                    <button type="button" class="btn btn-outline-dark" id="addNew" disabled>Adicionar Novo</button>
+                    <button type="button" class="btn btn-outline-dark" id="readView" disabled>Visualizar</button>
+                    <button type="button" class="btn btn-outline-dark" id="editRec" disabled>Editar Registro</button>
+                    <button type="button" class="btn btn-outline-dark" id="deleteRec" disabled>Excluir Registro</button>
+
+                    <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModal">Fechar</button>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal" id="formulario">
+    <div class="modal-dialog modal-dialog modal-fullscreen modal-dialog-scrollable" id='modalGeral'>
+        <div class="modal-content custom-form">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titleForm">Formulário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="form">
+
+            </div>
+            <div class="modal-footer" id="buttonBarForm">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="css/DataWake.css">

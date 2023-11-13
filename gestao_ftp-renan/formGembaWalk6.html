@@ -1,0 +1,101 @@
+<form>
+<div class="começo" style="padding-top: 2%;">
+    <form class="form-horizontal" id="formGembaWalk6" name="formGembaWalk6">
+
+    <h1>GEMBA WALK 6</h1>
+    <P>N.A. - Não Aplicável</P>
+    <P>OK - Item em concordância com as regras, sem não conformidade detectada</P>
+    <P>NOK - Não conformidade detectada</P>
+    
+    <div class="col-md-3">
+    <label for="data_" class="data_">Data</label>
+    <input type="date" id="data_">
+    </div>
+
+        <div class="container">
+        <label for="nome">Nome do Auditor</label for="nome">
+        <input type="text" id="nome_Auditor"  placeholder="Nome e sobrenome" >
+        <br>
+      
+        <label for="nome">Nome do Auditado</label>
+        <input type="text" id="nome_Auditado" placeholder="Nome e Sobrenome">
+         </div>
+
+        <div class="col-md-3">
+        <p id="planta">Planta</p>
+        <select name="" id="select">
+            <option>COMPOSTO</option>
+            <option>EXTRUSORA MANGUEIRA 1</option>
+            <option>EXTRUSORA MANGUEIRA 1</option>
+            <option>EXTRUSORA MANGUEIRA 2</option>
+            <option>COXIM</option>
+            <option>ACABAMENTO MAGUEIRA 1 E 2</option>
+            <option>VULCANIZAÇÃO DE MAGUEIRAS</option>
+            <option>DH/USINAGEM</option>
+            <option>DH/USINAGEM</option>
+        </select>
+    </div>
+
+        <div class="col-md-3">
+        <label for="">Célula</label>
+        <input type="text" id="celula">
+         </div>
+
+    <h2>Controle de Alteração de Processo </h2>
+
+    
+    <div class="col-md-3">
+      <p>30. Ocorreu alguma alteração do Processo / Produto  / Layout ?
+       Avaliar se na data <br> da auditoria houve algum desvio na produção, verificando se há registros do mesmo <br>
+       nas documentações de produto.</p>
+
+     
+        <input type="radio" id="pergunta_30" name="pergunta_30" value="ok"/>OK<br />
+        <input type="radio" id="pergunta_30" name="pergunta_30" value="nok"/>NOK<br />
+        <input type="radio" id="pergunta_30" name="pergunta_30" value="na"/>N.A<br />
+    
+    </div>
+
+            <div class="col-md-3">
+            <label for="ocorrencia">Em caso de <b>NOK</b>, descreva a ocorrência.</label>
+            <input type="text" id="ocorrencia" name="ocorrencia" class="ocorrencia" >
+            </div>
+
+        
+            <div class="col-md-3">
+            <p>31. Se sim, foi atualizado o trabalho padronizado na célula?
+                Verificar registro de gerenciamento da <br> contramedida do plano de reação.</p>
+            <input type="radio" name="pergunta_31" id="pergunta_31" value="ok"/>OK<br />
+            <input type="radio" name="pergunta_31" id="pergunta_31" value="nok"/>NOK<br />
+            <input type="radio" name="pergunta_31" id="pergunta_31" value="na"/>N.A<br />
+            </div>
+
+             <div class="col-md-3">
+            <label for="ocorrencia-nok">Em caso de <b>NOK</b>, descreva a ocorrência.</label>
+            <input type="text" id="ocorrencia_31" name="ocorrencia-nok" class="ocorrencia" >
+            </div>
+
+
+        <h3>VOZ DO CLIENTE</h3>
+
+               <p>32. Os colaboradores conhecem a política da Paranoá e meio ambiente? <br>
+                Perguntar aos operadores se eles sabem aonde se encontra a política de qualidade.</p>
+
+                <input type="radio" name="pergunta_32" id="pergunta_32" value="ok"/>OK<br />
+                <input type="radio" name="pergunta_32" id="pergunta_32" value="nok"/>NOK<br />
+                <input type="radio" name="pergunta_32" id="pergunta_32" value="na"/>N.A<br />
+        </div>
+
+        <div class="col-md-3">
+            <label for="ocorrencia-nok">Em caso de <b>NOK</b>, descreva a ocorrência.</label>
+            <input type="text" id="ocorrencia_32" name="ocorrencia-nok" class="ocorrencia" >
+        </div>
+
+        <button id="botão-enviar">Enviar</button>
+
+        </div>
+    </form>
+
+
+
+

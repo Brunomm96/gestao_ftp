@@ -1,0 +1,28 @@
+<div class="row mt-4" style="padding-top: 2%;">
+    <form class="form-horizontal" id="formGaiolas">
+        <div class="col-md-12">
+            <h4 class="text-light"> Informações de Especificação de Gaiolas</h4>
+        </div>
+        <div class="row g-3" style="padding-top: 5%;">
+            <div class="col-md-12">
+                <label for="tag">Tag</label>
+                <input type="text" class="form-control" id="tag" name="tag" placeholder="Número da TAG" required>
+            </div>
+        </div>
+        <div class="row g-3" style="padding-top: 5%;">
+            <div class="col-md-6">
+                <label for="observacao">Observacao:</label>
+                <select id='observacao' name='observacao' class="form-select" aria-label="OPÇÕES" required onblur="javascript:fWhen(this, 'tara', 'GAIOLA',true)" onchange="javascript:fWhen(this, 'tara', 'GAIOLA',true)">
+                                <option selected></option>
+                                <option value="GAIOLA">GAIOLA</option>
+                                <option value="CAIXA">CAIXA</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="tara">Tara:</label>
+                <input type="number" class="form-control" id="tara" name="tara" placeholder="Tara" readonly>
+            </div>
+        </div>
+
+    </form>
+</div>

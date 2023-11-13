@@ -1,0 +1,212 @@
+<div class="row mt-4" style="padding-top: 2%;">
+    <form class="form-horizontal" id="formControleReclamacoes" name="formControleReclamacoes">
+
+        <div class="col-md-12">
+            <h4 class="text-light"> Controle de Reclamações de Clientes </h4>
+        </div>
+
+        <div class="row g-3" style="padding-top: 2%;">
+            <div class="col-md-3">
+                <label for="item">ITEM:</label>
+                <input type="text" id="item" name="item" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="mes">MÊS:</label>
+                <select id='mes' name='mes' class="form-select">
+                    <option selected></option>
+                    <option value="Janeiro">Janeiro</option>
+                    <option value="Fevereito">Fevereito</option>
+                    <option value="Março">Março</option>
+                    <option value="Abril">Abril</option>
+                    <option value="Maio">Maio</option>
+                    <option value="Junho">Junho</option>
+                    <option value="Julho">Julho</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Setembro">Setembro</option>
+                    <option value="Outubro">Outubro</option>
+                    <option value="Novembro">Novembro</option>
+                    <option value="Dezembro">Dezembro</option>
+                </select>
+            </div>
+            
+            <div class="col-md-3">
+                <label for="n8d">Nº 8D:</label>
+                <input type="text" id="n8d" name="n8d" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="data_Abertura">DATA DE ABERTURA:</label>
+                <input type="text" id="data_Abertura" name="data_Abertura" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="analista_Responsavel">ANALISTA RESPONSÁVEL:</label>
+                <select id='analista_Responsavel' name='analista_Responsavel' class="form-select">
+                    <option selected></option>
+                    <option value="Andre Pavanelli">Andre Pavanelli</option>
+                    <option value="Luiz Fabio">Luiz Fabio</option>
+                  
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="cliente">CLIENTE:</label>
+                <input type="text" id="cliente" name="cliente" class="form-control">
+            </div>
+            
+            <div class="col-md-3">
+                <label for="fornecedor">FORNECEDOR:</label>
+                <input type="text" id="fornecedor" name="fornecedor" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="planta_do_Cliente">PLANTA DO CLIENTE:</label>
+                <select id='planta_do_Cliente' name='planta_do_Cliente' class="form-select">
+                    <option selected></option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Anchieta">Anchieta</option>
+                    <option value="BetimMG">BetimMG</option>
+                    <option value="Catalão">Catalão</option>
+                    <option value="Diadema">Diadema</option>
+                    <option value="ResendeRJ">ResendeRJ</option>
+                    <option value="SBC">SBC</option>
+                    <option value="Sete Lagoas">Sete Lagoas</option>
+                    <option value="Sorocaba">Sorocaba</option>
+                    </select>
+            </div>
+            
+            <div class="col-md-3">
+                <label for="reclamacao_oficial">RECLAMAÇÃO OFICIAL:</label>
+                <select id='reclamacao_oficial' name='reclamacao_oficial' class="form-select">
+                    <option selected></option>
+                    <option value="Oficial">Oficial</option>
+                    <option value="Não Oficial">Não Oficial</option>
+                    </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="reincidencia">REINCIDÊNCIA:</label>
+                <select id='reincidencia' name='reincidencia' class="form-select">
+                    <option selected></option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                    </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="numero_Reclamacao_Cliente">NÚMERO DA RECLAMAÇÃO DO CLIENTE:</label>
+                <input type="text" id="numero_Reclamacao_Cliente" name="numero_Reclamacao_Cliente" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="contratacao_Empresaterceira">CONTRATAÇÃO DE EMPRESA TERCEIRA:</label>
+                <select id='contratacao_Empresaterceira' name='contratacao_Empresaterceira' class="form-select">
+                    <option selected></option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                    </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="debito_Recebido_Valor">DÉBITO RECEBIDO VALOR:</label>
+                <input type="text" id="debito_Recebido_Valor" name="debito_Recebido_Valor" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="procede">PROCEDE:</label>
+                <select id='procede' name='procede' class="form-select">
+                    <option selected></option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                    </select>
+            </div>
+            
+            <div class="col-md-3">
+                <label for="gp12">GP12:</label>
+                <select id='gp12' name='gp12' class="form-select">
+                    <option selected></option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                    </select>
+            </div>
+            
+            <div class="col-md-3">
+                <label for="classificacao_Reclamacao">CLASSIFICAÇÃO DA RECLAMAÇÃO:</label>
+                <select id='classificacao_Reclamacao' name='classificacao_Reclamacao' class="form-select">
+                    <option selected></option>
+                    <option value="ITEM DE SÉRIE">ITEM DE SÉRIE</option>
+                    <option value="ITEM DE GARANTIA">ITEM DE GARANTIA</option>                   
+                    </select>
+            </div>
+            
+            <div class="col-md-3">
+                <label for="solicitacao_Cs1_U_Cs2">SOLICITADO CS1 U CS2:</label>
+                <select id='solicitacao_Cs1_U_Cs2' name='solicitacao_Cs1_U_Cs2' class="form-select">
+                    <option selected></option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                    </select>
+            </div>
+            
+            <div class="col-md-3">
+                <label for="itens_Seguranca">ITENS DE SEGURANÇA:</label>
+                <select id='itens_Seguranca' name='itens_Seguranca' class="form-select">
+                    <option selected></option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                    </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="codigo_Peca_Cliente">CÓDIGO DA PEÇA CLIENTE:</label>
+                <input type="text" id="codigo_Peca_Cliente" name="codigo_Peca_Cliente" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="codigo_Peca_Paranoa">CÓDIGO DA PEÇA PARANOÁ:</label>
+                <input type="text" id="codigo_Peca_Paranoa" name="codigo_Peca_Paranoa" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="quantidade_Peca_Nao_Conforme">QUANTIDADE DE PEÇAS NÃO CONFORME:</label>
+                <input type="number" id="quantidade_Peca_Nao_Conforme" name="quantidade_Peca_Nao_Conforme" class="form-control">
+            </div>
+            
+            <div class="col-md-3">
+                <label for="descricao_Problema">DESCRIÇÃO DO PROBLEMA:</label>
+                <input type="text" id="descricao_Problema" name="descricao_Problema" class="form-control">
+            </div>
+            
+            <div class="col-md-3">
+                <label for="modo_Falha">MODO DE FALHA:</label>
+                <input type="text" id="modo_Falha" name="modo_Falha" class="form-control">
+            </div>
+            
+            <div class="col-md-3">
+                <label for="fundo_Da_Causa">FUNDO DA CAUSA:</label>
+                <input type="text" id="fundo_Da_Causa" name="fundo_Da_Causa" class="form-control">
+            </div>
+            
+            <div class="col-md-3">
+                <label for="planta_Origem_Problema">PLANTA ORIGEM PROBLEMA:</label>
+                <input type="text" id="planta_Origem_Problema" name="planta_Origem_Problema" class="form-control">
+            </div>
+            
+            
+            <div class="col-md-3">
+                <label for="resposta_Site_Cliente">RESPOSTA NO SITE DO CLIENTE:</label>
+                <input type="text" id="resposta_Site_Cliente" name="resposta_Site_Cliente" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="prazo_Resposta">PRAZO PARA RESPOSTA:</label>
+                <input type="text" id="prazo_Resposta" name="prazo_Resposta" class="form-control">
+            </div>
+        </div>
+    </form>
+</div>
+        
+            
+            
+            

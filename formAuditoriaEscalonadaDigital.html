@@ -1,0 +1,926 @@
+<script>
+    function getData(){
+        const dataAtual = new Date();
+        const ano = dataAtual.getFullYear();
+        const mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0');
+        const dia = dataAtual.getDate().toString().padStart(2, '0');
+        const dataFormatada = `${ano}-${mes}-${dia}`;
+        document.getElementById("dataAuditoria").value = dataFormatada;
+    }
+
+    function getUserName(){
+        var usuarioEmail = sessionStorage.getItem("username")
+        var dados = fViewDtByMail(usuarioEmail);
+        document.getElementById ("nomeAuditor").value = dados.name;
+    }
+    // funcao que grava a opção selecionada no momento do click
+    function getRadio(n){
+        var radioGroupName = document.querySelectorAll('input[name="resposta' + n + '"]');
+        var resp = "resposta" + n;
+        radioGroupName.forEach(function(resp) {
+            resp.addEventListener('click', function() {
+                validRadio(radioGroupName, n);   
+            });
+        });
+    }
+
+    //funcao que valida se a opção selecionada é a da NOK
+    function validRadio (radioGroupName, n){
+        var selectedRadio = false;
+        var descNok = "casoNok" + n;
+        let textElement = document.getElementById(descNok);
+
+        if (radioGroupName[1].checked){
+            selectedRadio = true;
+        }
+        if (selectedRadio){
+            alert("Por favor, preencher a ocorrência da Pergunta" + " " + n);
+            textElement.focus();
+        }
+    }
+
+    //funcao que preenche a celula automaticamente de acordo com a planta selecionada
+    $("#planta").on('change', function () {
+        var planta = document.getElementById("planta");
+        var celula = document.getElementById("celula");
+        var celulaOptions = [];
+        const opt = {
+            COMPOSTO: [
+                "Micro Ingredientes 01",
+                "Micro Ingredientes 02",
+                "Micro Ingredientes 05",
+                "Pó e Oléo",
+                "Banbury 01",
+                "Banbury 02",
+                "Banbury 03",
+                "Banbury 05",
+                "Cilindro 01",
+                "Cilindro 02",
+                "Cilindro 03",
+                "Cilindro 05",
+                "Cilindro 07",
+                "Batch off 01",
+                "Batch off 02"
+            ],
+            COXIM: [
+                "INJETORA 03",
+                "REBARBAÇÃO 03",
+                "INJETORA 04",
+                "REBARBAÇÃO 04",
+                "INJETORA 05",
+                "REBARBAÇÃO 05",
+                "INJETORA 08",
+                "REBARBAÇÃO 08"
+            ],
+            DHMONTAGEM: [
+                "RETORNO ONIX",
+                "PRESSÃO B",
+                "POLO PRESSÃO",
+                "POLO RETORNO",
+                "RETORNO MENOR",
+                "FIAT 02",
+                "RETORNO",
+            ],
+            AUTOCLAVEMANGUEIRA: [
+                "Célula 5004",
+                "Célula 5006",
+                "Célula 5016",
+                "Célula 5007",
+                "Célula 5009",
+                "Célula 5010"
+            ],
+            DHUSINAGEM: [
+                "BLM 01",
+                "Dobra Manual",
+                "BLM 07",
+                "BLM 04",
+                "BLM Corte",
+                "DOBRA PNEUMATICA",
+                "FORNO DE BRASAGEM",
+                "PRENSA 10",
+                "PRENSA 14",
+                "SOLDA MIG",
+                "SOLDA OXI",
+                "SERPETINA",
+            ],
+            ACABAMENTOMANGUEIRA1E2: [
+                "CÉLULA 01 (AVM)",
+                "CÉLULA 02 (RENAULT)",
+                "CÉLULA 03 (GM)",
+                "CÉLULA 04 (FIAT)",
+                "CÉLULA 05 (VW)",
+                "CÉLULA 06",
+                "CÉLULA 07 (RENAULT)",
+                "CÉLULA 08",
+                "CÉLULA 09",
+                "CÉLULA 10",
+                "CÉLULA 11",
+                "CÉLULA 12",
+                "CÉLULA 13",
+                "CÉLULA 14 (VW)",
+                "CÉLULA 15 (VW)",
+                "CÉLULA 16 (NISSAN)",
+                "INJETORA 06",
+                "CÉLULA 17",
+                "LAVAGEM",
+            ],
+
+            EXTRUSORAMANGUEIRA1: [
+                "COPE II",
+                "COLMEC",
+                "COPE I",
+                "GUIMIX"
+            ],
+
+            EXTRUSORAMANGUEIRA2: [
+                "CARIMBO 03",
+                "EXTRUSORA 04",
+                "COLMEC 11",
+                "TRANÇADEIRAS VERTICAIS",
+                "EXTRUSORA 02",
+                "EXTURSORA 06",
+                "BANDADEIRA",
+                "COLMEC 14",
+                "MÁQUINAS DE CORTE",
+                "EXTRUSORA 05",
+                "MALHADEIRA VERTICAL 013",
+                "EXTRUSORA COLMEC 12",
+                "PREPARAÇÃO DE MANDRIL",
+                "SACA MANDRIL",
+                "TRANÇADERIA HORIZONTAL",
+            ]
+        };
+
+    celulaOptions = opt[planta.value];
+    celula.innerHTML = "";
+
+    // adiciona as novas opções
+    for (var i = 0; i < celulaOptions.length; i++) {
+        var option = document.createElement("option");
+        option.text = celulaOptions[i];
+        celula.append(option);
+    }
+    celula.focus();
+});
+
+</script>
+<div class="row mt-4" style="padding-top: 2%;">
+    <form class="form-horizontal" id="formAuditoriaEscalonadaDigital" name="formAuditoriaEscalonadaDigital">
+
+        <div class="col-md-12">
+            <h2 class="text-light"> Auditoria Escalonada Digital </h2>
+        </div>
+
+        <div class="row g-3" style="padding-top: 2%;">
+            <div class="col-md-3">
+                <label for="id">ID:</label>
+                <input type="text" class="form-control" id="id" name="id" placeholder="Número do ID" readonly>
+            </div>
+            <div class="col-md-3">
+                <label for="dataAuditoria">DATA:</label>
+                <input type="datetime" class="form-control" id="dataAuditoria" name="dataAuditoria" readonly>
+                <script>
+                    getData();
+                </script>
+                
+            </div>
+            <div class="col-md-3">
+                <label for="nomeAuditor">Nome do Auditor: </label>
+                <input type="text" class="form-control" maxlength="50" id="nomeAuditor" name="nomeAuditor" placeholder="Nome e Sobrenome" readonly>
+            </div>
+            <div class="col-md-3">
+                <label for="nomeAuditado">Nome do Auditado:</label>
+                <input type="text" class="form-control" maxlength="50" id="nomeAuditado" name="nomeAuditado"
+                    placeholder="Nome e Sobrenome" required>
+                <script>
+                    getUserName();
+                </script>
+            </div>
+            <div class="col-md-3">
+                <label for="planta">Planta:</label>
+                <select id="planta" name="planta" class="form-select" aria-label="OPÇÕES" placeholder="Desc. Embalagem">
+                    <option selected></option>
+                    <option value="COMPOSTO">COMPOSTO</option>
+                    <option value="EXTRUSORAMANGUEIRA1">EXTRUSORA MANGUEIRA 1</option>
+                    <option value="EXTRUSORAMANGUEIRA2">EXTRUSORA MANGUEIRA 2</option>
+                    <option value="COXIM">COXIM</option>
+                    <option value="ACABAMENTOMANGUEIRA1E2">ACABAMENTO MANGUEIRA 1 e 2</option>
+                    <option value="AUTOCLAVEMANGUEIRA">AUTO CLAVE - MANGUEIRA</option>
+                    <option value="DHUSINAGEM">DH / USINAGEM</option>
+                    <option value="DHMONTAGEM">DH / MONTAGEM</option>   
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="celula">Célula:</label>
+                <select id ="celula" name = "celula" class = "form-select" aria-label = "OPÇÕES"></select>
+            </div>
+
+            <h4 class="text-light">IDENTIFICAÇÃO DE MATERIAL E PRODUTO</h4>
+            <div class="col-md-12 text-light">
+                1. Os materiais e produtos estão devidamente identificados de acordo com seu status (embalagens a
+                ser
+                processado, produtos em processo) e peças rejeitadas?
+                Verificar e analisar se os produtos contém as devidas etiquetas de acordo com o status do produto
+                (não
+                conforme, em análise, aprovado).
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta1" name="resposta1" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta1" name="resposta1" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta1" name="resposta1" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+                <script>
+                    getRadio(1);
+                </script>
+            </div>
+            <div class="col-md-3">
+                <label for="casoNok1">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok1" name="casoNok1" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência. </h7><br> -->
+            <!-- <input type="file" />  -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                2. A peça padrão e a peça Setup estão sendo controladas?<br>
+                Verificar se a peça padrão existe e se a peça Setup está sendo segregada e identificada corretamente
+                no
+                início do turno.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta2" name="resposta2" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta2" name="resposta2" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta2" name="resposta2" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+                <script>
+                    getRadio(2);
+                </script>
+            </div>
+            <div class="col-md-3">
+                <label for="casoNok2">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok2" name="casoNok2" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                3. Peças coelho para liberação do dispositivo ou peças padrão de gabaritos estão disponíveis no
+                local?<br>
+                Verificar se há peça coelho disponível.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta3" name="resposta3" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta3" name="resposta3" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta3" name="resposta3" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+                <script>
+                    getRadio(3);
+                </script>
+            </div>
+            <div class="col-md-3">
+                <label for="casoNok3">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok3" name="casoNok3" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                4. O armazenamento das peças e da matéria prima está sendo controlado corretamente?<br>
+                Questionar ao auditado onde é armazenado as peças e materias primas em sua área e verificar se está
+                conforme.
+                Avaliar se o composto e matéria prima também são consumidas respeitando FIFO.
+                Verificar se o produto acabado final está estocado em FIFO.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta4" name="resposta4" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta4" name="resposta4" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta4" name="resposta4" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+                <script>
+                    getRadio(4);
+                </script>
+            <div class="col-md-3">
+                <label for="casoNok4">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok4" name="casoNok4" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                5. Existe coletor de Refugo? E o descarte está sendo feito corretamente?<br>
+                Verificar se os coletores estão disponíveis na célula, se as peças identificadas e o refugo anotado
+                no
+                FGQ-030 / FGI-163 .
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta5" name="resposta5" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta5" name="resposta5" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta5" name="resposta5" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+                <script>
+                    getRadio(5);
+                </script>
+            </div>
+            <div class="col-md-3">
+                <label for="casoNok5">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok5" name="casoNok5" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <h4 class="text-light">CALIBRAÇÃO E CONDIÇÕES DE EQUIPAMENTOS / DISPOSITIVO</h4>
+
+            <div class="col-md-12 text-light">
+                6. POKA-YOKE estão no lugar correto e funcionando corretamente? Há evidências de validação do
+                POKA-YOKE<br>
+                Verificar se os Poka yoke estão sendo validados a cada turno.
+                Verificar com operador o que fazer em caso de não funcionamento do Poka Yoke, qual a forma de
+                escalonamento que ele deve proceder?
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta6" name="resposta6" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta6" name="resposta6" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta6" name="resposta6" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(6);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok6">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok6" name="casoNok6" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                7. Os meios de controle (instrumentos de medição e gabaritos) necessários para garantir a qualidade
+                do
+                processo / produto estão disponíveis, calibrados e Identificados<br>
+                Avaliar se os gabaritos estão em condição de uso conforme instrução. Buscar um
+                instrumento/máquina/dispositivo na área e verificar se o mesmo possui identificação(TAG) e se a data
+                de
+                calibração esta dentro do prazo.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta7" name="resposta7" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta7" name="resposta7" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta7" name="resposta7" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(7);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok7">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok7" name="casoNok7" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                8. Há equipamentos ou máquinas em manutenção?<br>
+                Verificar se há registro da manutenção dos equipamentos e/ou máquinas e se estão devidamente
+                identificados e disponíveis na área de trabalho.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta8" name="resposta8" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta8" name="resposta8" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta8" name="resposta8" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(8);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok8">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok8" name="casoNok8" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                9. O check-List de Liberação de Máquina ( MPT ) e a IOT, estão disponível carimbadas (Cópia
+                Controlada),
+                aprovadas (Assinado) e visíveis ao operador?<br>
+                Verificar se foi liberado o Equipamento conforme instrução e se está preenchido o Check-list.
+                <br>Verificar se os equipamentos verificados estão disponíveis e funcionando.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta9" name="resposta9" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta9" name="resposta9" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta9" name="resposta9" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(9);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok9">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok9" name="casoNok9" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <h4 class="text-light">DOCUMENTAÇÃO</h4>
+
+            <div class="col-md-12 text-light">
+                10. A FTP, PPF, Book de Defeito e IOTs estão disponíveis, carimbadas (Cópia Controlada), aprovadas
+                (Assinado) e visíveis ao operador?<br>
+                Avaliar se há instruções de trabalho na área. Em seguida, avaliar se esta atualizada e controlada.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta10" name="resposta10" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta10" name="resposta10" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta10" name="resposta10" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(10);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok10">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok10" name="casoNok10" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                11. As etapas de processo da FTP, PPF, IOTS, Plano de Controle e Instrução de Gage estão sendo
+                seguidas
+                adequadamente?<br>
+                Verificar se estão executando as atividades de acordo com a frequência definida no Plano de
+                Controle.<br>
+                Verificar plano de controle, fluxo do processo e layout da área, analisando o documento, e se o
+                colaborador compreende de forma clara.<br>
+                Verificar no FGQ-030 / FGI.163 se todos os parâmetros controlados estão conforme o especificado
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta11" name="resposta11" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta11" name="resposta11" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta11" name="resposta11" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(11);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok11">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok11" name="casoNok11" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                12. Os critérios de aceitação, Book de defeito estão definidos e disponíveis no posto de trabalho e
+                são
+                compreendidos pelo operador?<br>
+                Verificar a disposição do documento e se as fotos são aplicáveis aos defeitos da célula.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta12" name="resposta12" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta12" name="resposta12" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta12" name="resposta12" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(12);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok12">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok12" name="casoNok12" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                13. O Triângulo da Qualidade possui registro de ocorrência e ações definidas?<br>
+                Avaliar se houve ocorrência no posto de trabalho.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta13" name="resposta13" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta13" name="resposta13" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta13" name="resposta13" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(13);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok13">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok13" name="casoNok13" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                14. Há informação disponível na linha, para a última reclamação de cliente? Há alerta da qualidade
+                (ANQ)
+                disponível?<br>
+                Questionar um colaborador da área, para evidenciar se o mesmo possui conhecimento do alerta e se
+                entende
+                quando e porque é emitido um alerta. Em seguida buscar alertas de qualidade como forma de evidenciar
+                tal
+                ação de treinamento para com os colaboradores.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta14" name="resposta14" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta14" name="resposta14" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta14" name="resposta14" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(14);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok14">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok14" name="casoNok14" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                15. Os colaboradores conhece a Politica da Paranoá e Meio Ambiente?<br>
+                Perguntar aos operadores se eles sabem aonde se encontra a politicas da qualidade?
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta15" name="resposta15" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta15" name="resposta15" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta15" name="resposta15" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(15);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok15">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok15" name="casoNok15" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <h4 class="text-light">TREINAMENTO</h4>
+
+            <div class="col-md-12 text-light">
+                16. O sistema Andom está funcionando?<br>
+                Verificar se o mesmo esta com as luzes em funcionamento e a eficácia do Andom e o tempo de reação da
+                liderança.<br>
+                Perguntar a um operador se ele conhece o conceito do Andom e se está sendo aplicado
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta16" name="resposta16" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta16" name="resposta16" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta16" name="resposta16" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(16);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok16">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok16" name="casoNok16" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                17. Todos os operadores "novatos" estão em treinamento e identificados com os coletes amarelos,
+                Broches
+                e/ou macacão amarelo (composto)?<br>
+                Verificar visualmente
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta17" name="resposta17" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta17" name="resposta17" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta17" name="resposta17" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(17);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok17">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok17" name="casoNok17" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                18. A Matriz de Versatilidade está disponível e atualizada com os novos colaboradores e conforme
+                desenvolvimento do colaborador X atividade realizada?<br>
+                Verificar disponibilidade da Matriz e se os operadores estão treinados nas operações da célula
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta18" name="resposta18" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta18" name="resposta18" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta18" name="resposta18" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(18);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok18">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok18" name="casoNok18" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <h4 class="text-light">SEGURANÇA E MEIO AMBIENTE</h4>
+
+            <div class="col-md-12 text-light">
+                19. O Comportamento do operador está de acordo com os requisitos de segurança, saúde e meio
+                ambiente?<br>
+                Verificar se os colaboradores estão utilizando os EPIS´s na área: colete, luvas, óculos, sapato
+                segurança, etc.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta19" name="resposta19" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta19" name="resposta19" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta19" name="resposta19" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(19);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok19">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok19" name="casoNok19" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+            <div class="col-md-12 text-light">
+                20. O local de trabalho está limpo e organizado de acordo com o documento do SOLO 5S.?<br>
+                Os pedestais e bancadas com as documentações estão com os documentos correspondentes?<br>
+                Verificar se os equipamentos estão livres de sujeira possibilitando contaminação nas peças. Avaliar
+                se
+                esta tudo em ordem na área de trabalho, sem objetos desnecessários. Avaliar se os pedestais e
+                bancadas
+                estão com as documentações em seus devidos lugares conforme documento solo 5S.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta20" name="resposta20" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta20" name="resposta20" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta20" name="resposta20" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(20);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok20">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok20" name="casoNok20" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+
+            <div class="col-md-12 text-light">
+                21. Colaboradores conhecem o conceito e os riscos de Contaminação no seu local de trabalho (ver Mapa
+                de
+                Contaminação)
+                Conhece os aspectos e impactos ambientais da célula?<br>
+                Verificar se o operador conhece e sabe onde fica a LAIA
+                Perguntar sobre o Mapa de contaminação.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta21" name="resposta21" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta21" name="resposta21" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta21" name="resposta21" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(21);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok21">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok21" name="casoNok21" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+
+            <h4 class="text-light">QUALITY FOCUSED CHECKS ( Aplicável somente Produtos GM )</h4>
+
+            <div class="col-md-12 text-light">
+                22. O Líder esta verificando as características consideradas críticas no FMEA a cada setup e início
+                de
+                turno?<br>
+                Verificar no FGQ-030 se o Líder esta assinando ao lado de cada Setup e a cada inicio de Turno.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta22" name="resposta22" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta22" name="resposta22" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta22" name="resposta22" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(22);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok22">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok22" name="casoNok22" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+
+            <div class="col-md-12 text-light">
+                23. Foi feito o Gemba do Quality Focus conforme formulário e validado as ações<br>
+                Verificar se o formulário do Quality Focused esta devidamente preenchido e junto ao ANQ, caso haja
+                reclamação ou alerta na célula
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta23" name="resposta23" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta23" name="resposta23" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta23" name="resposta23" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(23);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok23">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok23" name="casoNok23" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+
+            <h4 class="text-light">CONTROLE DE ALTERAÇÃO DE PROCESSO
+            </h4>
+
+            <div class="col-md-12 text-light">
+                24. Ocorreu alguma alteração do Processo/Produto/Layout ?<br>
+                Avaliar se na data da auditoria houve algum desvio na produção, verificando se há registros do mesmo
+                nas
+                documentações de produto.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta24" name="resposta24" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta24" name="resposta24" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta24" name="resposta24" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <script>
+                getRadio(24);
+            </script>
+            <div class="col-md-3">
+                <label for="casoNok24">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok24" name="casoNok24" required>
+            </div>
+            <br>
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <br><br>
+
+            <div class="col-md-12 text-light">
+                25. Se sim, foi atualizado o trabalho padronizado da célula?<br>
+                Verificar registro de gerenciamento da contramedida do plano de reação.
+                <br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta25" name="resposta25" value="OK"></label>
+                <label for="html">OK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta25" name="resposta25" value="NOK"></label>
+                <label for="html">NOK</label><br>
+                <label for="comprom_perg_a" class="radio-inline control-label">
+                    <input type="radio" id="resposta25" name="resposta25" value="N.A."></label>
+                <label for="html">N.A.</label><br>
+            </div>
+            <div class="col-md-3">
+                <label for="casoNok25">Em caso de NOK, descreva a ocorrência.</label>
+                <input type="text" class="form-control" maxlength="50" id="casoNok25" name="casoNok25"
+                    required>
+            </div>
+            <script>
+                getRadio(25);
+            </script>
+
+            <!-- <h7>Se necessário enviar uma foto da ocorrência.</h7><br> -->
+            <!-- <input type="file" /> -->
+            <!-- <br>
+                <button type="submit"></button> -->
+        </div>
+    </form>
+</div>

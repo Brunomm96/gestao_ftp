@@ -1,0 +1,89 @@
+<script>
+function fUDados(){
+    var dados  = ''
+    dados = fViewDtByMail(username);
+    
+    
+    if (dados != null && dados != undefined && document.getElementById("id") != null){
+       
+        document.getElementById("id").value         = dados.id;
+        document.getElementById("email").value      = dados.email;
+        document.getElementById("name").value       = dados.name;
+        document.getElementById('password').value   = dados.password;
+        document.getElementById('passwordConfirm').value   = dados.password;
+        document.getElementById('firstAccess').value   = dados.firstAccess;
+    }else
+    {   alert('Não foi possível realizar o processamento desta operação, tente mais tarde.')};
+}
+    
+ </script>   
+    
+
+
+    <div class="col-lg-12 login-title">
+        Meus Dados
+    </div>
+
+    <div class="col-lg-12 ">
+        <div class="col-lg-12 ">
+            <form method="post" name="formUsuarios"  id="formUsuarios">
+                <div class="row">
+                    <div class="col-lg-4">
+                        
+                            <label class="form-control-label">ID: </label>
+                            <input type="text" class="form-control " aria-required="true" name="id"
+                                id="id"  aria-invalid="false" required x-moz-errormessage="Ops.
+                                Não esqueça de preencher este campo." readonly>
+                            <div><em id="cpmail"></em></div>
+                        
+                    </div>
+                    <div class="col">
+                        <label class="form-control-label">USUÁRIO: </label>
+                        <input type="text" class="form-control " aria-required="true" name="email"
+                            id="email" aria-invalid="false" required x-moz-errormessage="Ops.
+                            Não esqueça de preencher este campo.">
+                        <div><em id="cpmail"></em></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">NOME: </label>
+                    <input type="text" class="form-control " aria-required="true" name="name"
+                        id="name" aria-invalid="false" required x-moz-errormessage="Ops.
+                        Não esqueça de preencher este campo.">
+                    <div><em id="cpmail"></em></div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">SENHA: </label>
+                    <input type="password" class="form-control" name='password' id='password'
+                        aria-required="true" aria-invalid="false" required x-moz-errormessage="Ops.
+                        Não esqueça de preencher este campo.">
+                        <div><em id="cpass"></em></div>
+                </div>
+                <div class="form-group" style="display: none;">
+                    <label class="form-control-label">Primeiro Acesso: </label>
+                    <input type="text" class="form-control" name='firstAccess' id='firstAccess'
+                        aria-required="true" aria-invalid="false" required x-moz-errormessage="Ops.
+                        Não esqueça de preencher este campo.">
+                        <div><em id="cpass"></em></div>
+                </div>
+            </form>
+            <div class="form-group">
+                <label class="form-control-label">REPITA A SENHA: </label>
+                <input type="password" class="form-control" name='passwordConfirm' id='passwordConfirm'
+                    aria-required="true" aria-invalid="false" required x-moz-errormessage="Ops.
+                    Não esqueça de preencher este campo.">
+                    <div><em id="cpassConfirm"></em></div>
+            </div>
+            <div class= 'row'>
+                <button type="button" class="btn btn-warning btn-lg btn-block" onclick="javascript:fAlteraDados()" >ALTERAR DADOS</button>
+            </div>
+
+        </div>
+
+<link rel="stylesheet" type="text/css" href="css/DataWakeLogin.css">
+
+    
+<script>
+    fUDados();
+
+</script>

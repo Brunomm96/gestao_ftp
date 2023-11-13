@@ -1,0 +1,133 @@
+<div class="row mt-4" style="padding-top: 2%;">
+    <form class="form-horizontal" id="formGembaWalk5" name="formGembaWalk5">
+
+        <div class="col-md-12">
+            <h4 class="text-light"> GEMBA WALK 5 </h4>
+        </div>
+
+        <ul>
+            <li>
+                <span>N.A - Não Aplicável</span>
+            </li>
+            <li>
+                <span>OK - Item em concordância com as regras, sem não conformidade detectada</span>
+            </li>
+            <li>
+                <span>NOK - Não conformidade detectada</span>
+            </li>
+        </ul>
+
+        <div class="col-md-3">
+            <label for="data">DATA:</label>
+            <input type="date" id="data" name="data" class="form-control">
+        </div>    
+        
+        <div class="col-md-3">
+            <label for="nome_Auditor">NOME DO AUDITOR:</label>
+            <input type="text" id="nome_Auditor" name="nome_Auditor" class="form-control" placeholder="Nome e sobrenome">
+        </div>
+
+        <div class="col-md-3">
+            <label for="nome_Auditador">NOME DO AUDITADOR:</label>
+            <input type="text" id="nome_Auditador" name="nome_Auditador" class="form-control" placeholder="Nome e sobrenome">
+        </div>
+
+        <div class="col-md-3">
+            <label for="planta">PLANTA:</label>
+            <select id='planta' name='planta' class="form-select">
+                <option selected></option>
+                <option value="Composto">Composto</option>
+                <option value="Extrusora Mangueira 1">Extrusora Mangueira 1</option>
+                <option value="Extrusora Mangueira 2">Extrusora Mangueira 2</option>
+                <option value="Coxim">Coxim</option>
+                <option value="Acabamento Mangueira 1 e 2">Acabamento Mangueira 1 e 2</option>
+                <option value="Vulcanização de Mangueiras">Vulcanização de Mangueiras</option>
+                <option value="DH / Usinagem">DH / Usinagem</option>
+                <option value="DH / Montagem">DH / Montagem</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label for="celula">CÉLULA:</label>
+            <input type="text" id="celula" name="celula" class="form-control" >
+        </div>
+        <p></p>
+        <b>ESTAÇÃO DE VERIFICAÇÃO (INSPEÇÃO FINAL, CARE, GP12)</b>
+        <p></p>
+        <span>24. Há informação disponível na linha, para última reclamação do cliente? Há alerta da qualidade disponível?</span><br>
+        <span>Questionar um colaborador da área para evidenciar se o mesmo possui conhecimento do alerta e se entende quando <br>
+            porque é emitido um alerta. Em seguida buscar alertas de qualidade como forma de evidenciar tal ação de <br>
+            treinamento para com os colaboradores.</span>
+            <br>
+            <input type="radio" name="tipagem" value="ok"/>OK<br />
+            <input type="radio" name="tipagem" value="nok"/>NOK<br />
+            <input type="radio" name="tipagem" value="na"/>N.A<br />
+            <div class="col-md-3">
+                <label for="res24">Em caso de <b>NOK</b>, descreva a ocorrência.</label><br>
+                <input type="text" id="res24" name="res24" class="form-control" >
+            </div>
+
+        <p></p>
+        <b>CONTROLE DE CONTAMINAÇÃO</b>
+        <p></p>
+        <span>25. Conhece os aspectos e impactos ambientais da célula?</span><br>
+        <span>Verificar se o operador conhece e sabe onde fica a LAIA.</span>
+        <br>
+        <input type="radio" name="tipagem" value="ok"/>OK<br />
+        <input type="radio" name="tipagem" value="nok"/>NOK<br />
+        <input type="radio" name="tipagem" value="na"/>N.A<br />
+        <div class="col-md-3">
+            <label for="res25">Em caso de <b>NOK</b>, descreva a ocorrência.</label><br>
+            <input type="text" id="res25" name="res25" class="form-control" >
+        </div>
+        <p></p>
+        <span>26. Colaboradores conhecem o conceito e os riscos de contaminação no seu local de trabalho (ver mapa de contaminação)?</span><br>
+        <span>Perguntar sobre o mapa de contaminação.</span>
+        <br>
+        <input type="radio" name="tipagem" value="ok"/>OK<br />
+        <input type="radio" name="tipagem" value="nok"/>NOK<br />
+        <input type="radio" name="tipagem" value="na"/>N.A<br />
+        <div class="col-md-3">
+            <label for="res26">Em caso de <b>NOK</b>, descreva a ocorrência.</label><br>
+            <input type="text" id="res26" name="res26" class="form-control" >
+        </div>
+        <p></p>
+        <b>AUDITORIA ESCALONADA</b>
+        <p></p>
+        <span>27. O nível anterior realizou a auditoria escalonada com a qualidade adequada?</span><br>
+        <span>Apontar se o nível inferior fez a auditoria escalonada corretamente.</span>
+        <br>
+        <input type="radio" name="tipagem" value="ok"/>OK<br />
+        <input type="radio" name="tipagem" value="nok"/>NOK<br />
+        <input type="radio" name="tipagem" value="na"/>N.A<br />
+        <div class="col-md-3">
+            <label for="res27">Em caso de <b>NOK</b>, descreva a ocorrência.</label><br>
+            <input type="text" id="res27" name="res27" class="form-control" >
+        </div>
+        <p></p>
+        <b>QUALITY FOCUSED CHECKS (APLICADO SOMENTE A PRODUTOS GM)</b>
+        <p></p>
+        <span>28. O líder está verificando as características consideradas críticas no FMEA <br>
+            a cada setup e inicio de turno?</span><br>
+        <span>Verificar no FGQ-030 se o líder está assinando ao lado de cada setup e a cada <br>
+            início de turno.</span>
+        <br>
+        <input type="radio" name="tipagem" value="ok"/>OK<br />
+        <input type="radio" name="tipagem" value="nok"/>NOK<br />
+        <input type="radio" name="tipagem" value="na"/>N.A<br />
+        <div class="col-md-3">
+            <label for="res28">Em caso de <b>NOK</b>, descreva a ocorrência.</label><br>
+            <input type="text" id="res28" name="res28" class="form-control" >
+        </div>
+        <p></p>
+        <span>29. Foi feito o gemba do quality focus conforme formulário e validado as ações</span><br>
+        <span>Verificar se o formulário do quality focused está devidamente preenchido e <br>
+            junto ao ANQ, caso haja reclamação ou alerta na célula.</span>
+        <br>
+        <input type="radio" name="tipagem" value="ok"/>OK<br />
+        <input type="radio" name="tipagem" value="nok"/>NOK<br />
+        <input type="radio" name="tipagem" value="na"/>N.A<br />
+        <div class="col-md-3">
+            <label for="res29">Em caso de <b>NOK</b>, descreva a ocorrência.</label><br>
+            <input type="text" id="res29" name="res29" class="form-control" >
+        </div>

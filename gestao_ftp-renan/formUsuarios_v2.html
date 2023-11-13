@@ -1,0 +1,82 @@
+<div class="row mt-4" >
+    <form class="form-horizontal" id="formUsuariosV2">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="tara">Id:</label>
+                <input type="number" class="form-control" id="id" name="id" placeholder="id" >
+            </div>
+            <div class="col-md-12">
+                <label for="description">Nome:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="description" >
+            </div>
+            <div class="col-md-12">
+                <label for="email">E-mail:</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="email" >
+            </div>
+            <div class="col-md-12">
+                <label for="password">Senha:</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="password" >
+            </div>
+            <div class="col-md-12" style="display: none;">
+                <label for="firstAccess">Primeiro Acesso:</label>
+                <input type="text" class="form-control" id="firstAccess" name="firstAccess" placeholder="primeiro acesso" readonly value="null">
+            </div>
+        </div>
+        <div class="row" style="padding-top: 2%;">
+            <div class="col-md-6">  
+                <button type="button" class="btn btn-warning btn-lg btn-block" style="inline-size: -webkit-fill-available;" onclick="javascript:fMdlGroup()">
+                    <span class="glyphicon glyphicon-search" >Novo Grupo</span> 
+                </button>
+            </div>
+            <div class="col-md-6">  
+                <button type="button" class="btn btn-danger btn-lg btn-block" style="inline-size: -webkit-fill-available;" onclick="javascript:fDelGroup()">
+                    <span class="glyphicon glyphicon-search" >Excluir Grupo Selecionado</span> 
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <form class="form-horizontal" id="gpAccess" name="gpAccess" style="margin-top:2%">
+        <div class="col-md-12">
+            <div class="table-striped" style="overflow:auto;" id='modalList'>
+                <table class="display responsive nowrap" style="width:100%" id="tabgroup" name="tabgroup">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
+        </div>
+    </form>
+    <div class="modal" id="mdlGroup" tabindex="-1" aria-labelledby="exampleModalLabel" >
+        <div class="modal-dialog modal-xl modal-dialog-centered ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Consulta de Grupos</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-striped" style="overflow:auto;" id='mdlGroup' name="group">
+                    <table class="display responsive nowrap" style="width:100%" id="tblGroup">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+    
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary" onclick="javascript:fAddGroup()">Adicionar Grupo </button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,75 @@
+
+<div class="row mt-12" >
+
+    <form class="form-horizontal" id="formGpAcesso">
+        <div class="row g-3" >
+            <div class="col-md-6">
+                <label for="id">Id:</label>
+                <input type="number" class="form-control" id="id" name="id" placeholder="id" readonly>
+            </div>
+            <div class="col-md-12">
+                <label for="description">Nome do Grupo:</label>
+                <input type="text" class="form-control" id="description" name="description" placeholder="descricao" >
+            </div>
+            <div class="row" style="padding-top: 2%;">
+                <div class="col-md-6">  
+                    <button type="button" class="btn btn-warning btn-lg btn-block" style="inline-size: -webkit-fill-available;" onclick="javascript:fMdlPermission()">
+                        <span class="glyphicon glyphicon-search" >Nova Permissão</span> 
+                    </button>
+                </div>
+                <div class="col-md-6">  
+                    <button type="button" class="btn btn-danger btn-lg btn-block" style="inline-size: -webkit-fill-available;" onclick="javascript:fDelPermission()">
+                        <span class="glyphicon glyphicon-search" >Excluir Permissão Selecionada</span> 
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <form class="form-horizontal" id="permission" name="permission" style="margin-top:2%">
+        <div class="col-md-12">
+            <div class="table-striped" style="overflow:auto;" id='modalList'>
+                <table class="display responsive nowrap" style="width:100%" id="tabpermission" name="tabpermission">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Caminho</th>
+                            <th>Descrição Menu</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
+        </div>
+    </form>
+    <div class="modal" id="mdlPermissoes" tabindex="-1" aria-labelledby="exampleModalLabel" >
+        <div class="modal-dialog modal-xl modal-dialog-centered ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Consulta de Permissões</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-striped" style="overflow:auto;" id='mdlPermission' name="permission">
+                    <table class="display responsive nowrap" style="width:100%" id="tblpermission">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Caminho</th>
+                                <th>Descrição Menu</th>
+                            </tr>
+                        </thead>
+    
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary" onclick="javascript:fAddPermission()">Adicionar Permissão </button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+

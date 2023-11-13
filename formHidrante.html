@@ -1,0 +1,191 @@
+<div class="row mt-4" style="padding-top: 2%;">
+    <form class="form-horizonta" id="formHidrante" name="formHidrante">
+        <div class="col-md-12">
+            <h2 class="text-light"> VISTORIA DE CAIXAS DE HIDRANTES E MANGUEIRAS </h2>
+        </div>
+
+        <div class="row g-3" style="padding-top: 2%;">
+            <div class="col-md-3">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" id="id" name="id" placeholder="Número do ID" readonly>
+            </div>
+
+            <div class="col-md-3">
+                <label for="responsavel">Responsável</label>
+                <input type="text" class="form-control" id="responsavel" name="responsavel" readonly>
+            </div>
+
+            <div class="col-md-3">
+                <label for="hidranteh">Hidrante Nº:</label>
+                <input type="text" id="hidrante_N" name="hidrante_N" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="localizacao">Localização do Hidrante:</label>
+                <input type="text" id="localizacao" name="localizacao" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="datahidrostatico">Data do Teste Hidrostático:</label>
+                <input type="date" id="data_Hidrostatico" name="data_Hidrostatico" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="validade">Válido Até:</label>
+                <input type="text" id="validade" name="validade" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="ano">Ano:</label>
+                <input type="text" id="ano" name="ano" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="diavistoria">Data de Hoje:</label>
+                <input type="date" id="dia_Vistoria" name="dia_Vistoria" class="form-control">
+            </div>
+
+            <div class="col-md-12">
+                <h4 class="text-light"> QUESITOS PARA AVALIAÇÃO DO HIDRANTE </h4>
+                <h4 class="text-light"> Legenda para Registro ( C - Conforme / B - Não Conforme / N - Não Aplicável)
+                </h4>
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao01">A caixa de hidrantes está isenta de ferrugem ou sem partes danificadas que
+                    comprometa a sua utilização?</label>
+                <input type="text" id="questao01" name="questao01" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao02">O trava para fechamento da porta da caixa de hidrante está funcionando?</label>
+                <input type="text" id="questao02" name="questao02" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao03">A área que o hidrante está alocado está desobstruída?</label>
+                <input type="text" id="questao03" name="questao03" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao04">A pintura de demarcação do piso está em boas condições? É possível visualizá-la
+                    facilmente?</label>
+                <input type="text" id="questao04" name="questao04" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao05">O vidro da caixa de hidrante está trincado, quebrado ou ausente?</label>
+                <input type="text" id="questao05" name="questao05" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao06">Na área que o hidrante está alocado está disponível a placa de
+                    sinalização?</label>
+                <input type="text" id="questao06" name="questao06" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao07">Está disponível dentro da caixa de hidrante o "Esguicho Fixo"?</label>
+                <input type="text" id="questao07" name="questao07" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao08">Está disponível dentro da caixa de hidrante o "Esguicho Regulável"?</label>
+                <input type="text" id="questao08" name="questao08" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao09">Está disponível dentro da caixa de hidrante a "Chave Storz"?</label>
+                <input type="text" id="questao09" name="questao09" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao10">Acionador de emergência (verificar se a luz esta em funcionamento /
+                    piscando)</label>
+                <input type="text" id="questao10" name="questao10" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao11">A quantidade de mangueiras disponíveis na caixa de hidrante estão
+                    corretas?</label>
+                <input type="text" id="questao11" name="questao11" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao12">As condições do registro e tubulação está em bom estado de conservação.</label>
+                <input type="text" id="questao12" name="questao12" class="form-control">
+            </div>
+
+            <div class="col-md-12">
+                <h4 class="text-light"> QUESITOS PARA AVALIAÇÃO DA(S) MANGUEIRAS </h4>
+                <h4 class="text-light"> Legenda para Registro ( C - Conforme / B - Não Conforme / N - Não Aplicável)
+                </h4>
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao13">A Mangueira 1 possui o comprimento entre 14,70 e 15,00 ou 29,40 e 30,00
+                    metros?</label>
+                <input type="text" id="questao13" name="questao13" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao14">A Mangueira 2 possui o comprimento entre 14,70 e 15,00 ou 29,40 e 30,00
+                    metros?</label>
+                <input type="text" id="questao14" name="questao14" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao15">A Mangueira 3 possui o comprimento entre 14,70 e 15,00 ou 29,40 e 30,00
+                    metros?</label>
+                <input type="text" id="questao15" name="questao15" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao16">A Mangueira 4 possui o comprimento entre 14,70 e 15,00 ou 29,40 e 30,00
+                    metros?</label>
+                <input type="text" id="questao16" name="questao16" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao17">A vedação, engates e uniões estão disponíveis?</label>
+                <input type="text" id="questao17" name="questao17" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao18">Há desgaste da mangueira?(Abrasão ou fios rompidos na carcaça da
+                    mangueira)</label>
+                <input type="text" id="questao18" name="questao18" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao19">Há manchas que possam estar comprometendo o revestimento externo das
+                    mangueiras?</label>
+                <input type="text" id="questao19" name="questao19" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="questao20">Há deslizamento das uniões em relação a mangueira? (Soltar).</label>
+                <input type="text" id="questao20" name="questao20" class="form-control">
+            </div>
+
+            <div class="col-md-12">
+                <h4 class="text-light"> PLANO DE AÇÃO </h4>
+            </div>
+
+            <div class="col-md-3">
+                <label for="obs">Observação:</label>
+                <input type="text" id="obs" name="obs" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="mregistro">Mês do Registro:</label>
+                <input type="text" id="mregistro" name="mregistro" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="prazo">Prazo:</label>
+                <input type="text" id="prazo" name="prazo" class="form-control">
+            </div>
+        </div>
+    </form>
+</div>

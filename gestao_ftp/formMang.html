@@ -1,0 +1,815 @@
+<div class="container">
+    <form class="text-center" id="formSpecMangueira" name="formSpecMangueira">
+        <div class="mt-1 mb-5">
+            <div class="mt-1 mb-5 pb-3">
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+
+
+                <h3>
+                    <label> Informações de Especificação de Mangueiras </label>
+                </h3>
+            </div>
+
+            <div class="row g-4 align-items-stretch justify-content-center">
+                <div class="col-md-1">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" placeholder="Número do ID" readonly>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="pi">PI</label>
+                    <input type="text" class="form-control" maxlength="50" id="pi" name="pi" placeholder="Cód. PI"
+                        required>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="idUnidadeProducao">ID Unidade Produção</label>
+                    <input type="text" class="form-control" id="idUnidadeProducao" name="idUnidadeProducao"
+                        placeholder="ID Unidade de Produção">
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-1 mb-5 pt-3 border-top border-dark border-2">
+            <div class="mt-1 mb-5 pb-3">
+                <h3>
+                    <label> Conferência de Produto </label>
+                </h3>
+            </div>
+
+            <div class="row g-0 align-items-stretch justify-content-center">
+                <div class="col-md-4 row align-items-end">
+                    <div class="mb-4 align-self-start">
+                        <h4>
+                            <label> Embalagem </label>
+                        </h4>
+                    </div>
+
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Tipo de embalagem </label>
+                                </h5>
+                            </div>
+
+                            <label for="geralEmbalagemTipo"></label>
+                            <select id='geralEmbalagemTipo' name='geralEmbalagemTipo' class="form-select"
+                                aria-label="OPÇÕES" placeholder="Desc. Embalagem">
+                                <option selected></option>
+                                <option value="BANDEJA">BANDEJA</option>
+                                <option value="CAIXA">CAIXA</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Quantidade </label>
+                                </h5>
+                            </div>
+
+                            <label for="geralEmbalagemQtdePeca"></label>
+                            <input type="number" class="form-control" id="geralEmbalagemQtdePeca"
+                                name="geralEmbalagemQtdePeca" placeholder="Unidades">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIVIDER -->
+                <div class="vr m-3 bg-dark-subtle opacity-100"></div>
+
+                <div class="col-md-7 row align-items-end">
+                    <div class="mb-4 align-self-start">
+                        <h4>
+                            <label> Parâmetro de Produto </label>
+                        </h4>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <h5>
+                                <label> Comprimento da Mangueira </label>
+                            </h5>
+                        </div>
+
+                        <div class="row g-3 justify-content-between">
+                            <div class="col-md-4">
+                                <label for="geralLimMinComprimentoMangueira">Min</label>
+                                <input type="number" class="form-control" id="geralLimMinComprimentoMangueira"
+                                    name="geralLimMinComprimentoMangueira" placeholder="Medidas em mm">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="geralSpComprimentoMangueira">Desejável</label>
+                                <input type="number" class="form-control" id="geralSpComprimentoMangueira"
+                                    name="geralSpComprimentoMangueira" placeholder="Medidas em mm">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="geralLimMaxComprimentoMangueira">Max</label>
+                                <input type="number" class="form-control" id="geralLimMaxComprimentoMangueira"
+                                    name="geralLimMaxComprimentoMangueira" placeholder="Medidas em mm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <h5>
+                                <label> Espessura da Mangueira </label>
+                            </h5>
+                        </div>
+
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-md-4">
+                                <label for="geralEspessuraMangueiraLimMin">Min</label>
+                                <input type="number" class="form-control" id="geralEspessuraMangueiraLimMin"
+                                    name="geralEspessuraMangueiraLimMin" placeholder="Medidas em mm">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="geralEspessuraMangueiraLimMax">Max</label>
+                                <input type="number" class="form-control" id="geralEspessuraMangueiraLimMax"
+                                    name="geralEspessuraMangueiraLimMax" placeholder="Medida em mm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-1 mb-5 pt-3 border-top border-dark border-2">
+            <div class="mt-1 mb-5 pb-3">
+                <h3>
+                    <label> Especificação de Extrusão de Tubo </label>
+                </h3>
+            </div>
+
+            <div class="row g-0 align-items-stretch">
+                <div class="col-md-3 ">
+                    <div class="mb-4">
+                        <h4>
+                            <label> Ferramentas </label>
+                        </h4>
+                    </div>
+
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Ø Pino </label>
+                                </h5>
+                            </div>
+
+                            <label for="ferramentaTuboDiametroPino"></label>
+                            <input type="number" class="form-control" id="ferramentaTuboDiametroPino"
+                                name="ferramentaTuboDiametroPino" placeholder="medidas em mm">
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Ø Matriz </label>
+                                </h5>
+                            </div>
+
+                            <label for="ferramentaTuboDiametroMatriz"></label>
+                            <input type="number" class="form-control" id="ferramentaTuboDiametroMatriz"
+                                name="ferramentaTuboDiametroMatriz" placeholder="medidas em mm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIVIDER -->
+                <div class="vr m-3 bg-dark-subtle opacity-100"></div>
+
+                <div class="col-md-5">
+                    <div class="mb-4">
+                        <h4>
+                            <label> Material </label>
+                        </h4>
+                    </div>
+
+                    <div class="row g-3 justify-content-center align-items-end">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Código de Composto </label>
+                                </h5>
+                            </div>
+
+                            <div class="row g-3 justify-content-center">
+                                <div class="col">
+                                    <label for="tuboCodigoComposto"></label>
+                                    <input type="text" maxlength="50" class="form-control" id="tuboCodigoComposto"
+                                        name="tuboCodigoComposto" placeholder="Cód. composto tubo">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Espessura da Parede </label>
+                                </h5>
+                            </div>
+
+                            <div class="row g-3 justify-content-center">
+                                <div class="col-md-6">
+                                    <label for="tuboLimMinEspessuraParede">Min</label>
+                                    <input type="number" class="form-control" id="tuboLimMinEspessuraParede"
+                                        name="tuboLimMinEspessuraParede" placeholder="Medidas em mm">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="tuboLimMaxEspessuraParede">Max</label>
+                                    <input type="number" class="form-control" id="tuboLimMaxEspessuraParede"
+                                        name="tuboLimMaxEspessuraParede" placeholder="Medidas em mm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-2 mt-5 justify-content-center">
+                        <div class="col-md-5">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Ø Interno </label>
+                                </h5>
+                            </div>
+
+                            <div class="row g-1 justify-content-center">
+                                <div class="col-md-5">
+                                    <label for="tuboLimMinDiametroInterno">Min</label>
+                                    <input type="number" class="form-control" id="tuboLimMinDiametroInterno"
+                                        name="tuboLimMinDiametroInterno" placeholder="Medidas em mm">
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="tuboLimMaxDiametroInterno">Max</label>
+                                    <input type="number" class="form-control" id="tuboLimMaxDiametroInterno"
+                                        name="tuboLimMaxDiametroInterno" placeholder="Medidas em mm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Ø Externo </label>
+                                </h5>
+                            </div>
+
+                            <div class="row g-1 justify-content-center">
+                                <div class="col-md-4">
+                                    <label for="tuboLimMinDiametroExterno">Min</label>
+                                    <input type="number" class="form-control" id="tuboLimMinDiametroExterno"
+                                        name="tuboLimMinDiametroExterno" placeholder="Medidas em mm">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="tuboSpDiametroExterno">Desejável</label>
+                                    <input type="number" class="form-control" id="tuboSpDiametroExterno"
+                                        name="tuboSpDiametroExterno" placeholder="Medidas em mm">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="tuboLimMaxDiametroExterno">Ext</label>
+                                    <input type="number" class="form-control" id="tuboLimMaxDiametroExterno"
+                                        name="tuboLimMaxDiametroExterno" placeholder="Medidas em mm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIVIDER -->
+                <div class="vr m-3 bg-dark-subtle opacity-100"></div>
+
+                <div class="col-md-3">
+                    <div class="mb-4">
+                        <h4>
+                            <label> Máquina </label>
+                        </h4>
+                    </div>
+
+                    <div class="row g-3 justify-content-center">
+                        <div class="col">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Velocidade da Linha </label>
+                                </h5>
+                            </div>
+
+                            <div class="row g-3 justify-content-center">
+                                <div class="col-md-4">
+                                    <label for="geralLimMinVelocidadeLinha">Min</label>
+                                    <input type="number" class="form-control" id="geralLimMinVelocidadeLinha"
+                                        name="geralLimMinVelocidadeLinha" placeholder="Limite Min de Linha (min)">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="geralSpVelocidadeLinha">Desejável</label>
+                                    <input type="number" class="form-control" id="geralSpVelocidadeLinha"
+                                        name="geralSpVelocidadeLinha" placeholder="Veloc. de Linha (min)">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="geralLimMaxVelocidadeLinha">Máx</label>
+                                    <input type="number" class="form-control" id="geralLimMaxVelocidadeLinha"
+                                        name="geralLimMaxVelocidadeLinha" placeholder="Limite Máx de Linha (min)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-5 justify-content-center align-items-stretch">
+                <div class="mb-3">
+                    <h4>
+                        <label> Parâmetros da Extrusão de Tubo </label>
+                    </h4>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row g-1 justify-content-center">
+                        <div class="mb-3">
+                            <h5>
+                                <label> Temperatura da Borracha </label>
+                            </h5>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="tuboLimMinTempBorracha">Min</label>
+                            <input type="number" class="form-control" id="tuboLimMinTempBorracha"
+                                name="tuboLimMinTempBorracha" placeholder="em Cº">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="tuboSpTempBorracha">Desejável</label>
+                            <input type="number" class="form-control" id="tuboSpTempBorracha" name="tuboSpTempBorracha"
+                                placeholder="em Cº">
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <label for="tuboLimMaxTempBorracha">Max</label>
+                            <input type="number" class="form-control" id="tuboLimMaxTempBorracha"
+                                name="tuboLimMaxTempBorracha" placeholder="em Cº">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row g-1 justify-content-center">
+                        <div class="mb-3">
+                            <h5>
+                                <label> Temperatura da Zona </label>
+                            </h5>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="tuboLimMinZonaExtrusao">Min</label>
+                            <input type="number" class="form-control" id="tuboLimMinZonaExtrusao"
+                                name="tuboLimMinZonaExtrusao" placeholder="em Cº">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tuboSpZonaExtrusao">Desejável</label>
+                            <input type="number" class="form-control" id="tuboSpZonaExtrusao" name="tuboSpZonaExtrusao"
+                                placeholder="em Cº">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tuboLimMaxZonaExtrusao">Max</label>
+                            <input type="number" class="form-control" id="tuboLimMaxZonaExtrusao"
+                                name="tuboLimMaxZonaExtrusao" placeholder="em Cº">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row g-1 justify-content-center">
+                        <div class="mb-3">
+                            <h5>
+                                <label> Temperatura do Cabeçote </label>
+                            </h5>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="tuboSpCabecote">Desejável</label>
+                            <input type="number" class="form-control" id="tuboSpCabecote" name="tuboSpCabecote"
+                                placeholder="em Cº">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="tuboLimMinCabecote">Min</label>
+                            <input type="number" class="form-control" id="tuboLimMinCabecote" name="tuboLimMinCabecote"
+                                placeholder="em Cº">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="tuboLimMaxCabecote">Max</label>
+                            <input type="number" class="form-control" id="tuboLimMaxCabecote" name="tuboLimMaxCabecote"
+                                placeholder="em Cº">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-1 mb-5 pt-3 border-top border-dark border-2">
+            <div class="mt-1 mb-5 pb-3">
+                <h3>
+                    <label> Especificação da Malhadeira </label>
+                </h3>
+            </div>
+
+            <div class="row g-0 align-items-stretch">
+                <div class="col-md-8">
+                    <div class="mb-5">
+                        <h4>
+                            <label> Ferramentas </label>
+                        </h4>
+                    </div>
+
+                    <div class="row g-2 justify-content-center">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Tipo de Agulha </label>
+                                </h5>
+                            </div>
+
+                            <label for="ferramentaMalhadeiraTipoAgulha"></label>
+                            <input type="text" maxlength="50" class="form-control" id="ferramentaMalhadeiraTipoAgulha"
+                                name="ferramentaMalhadeiraTipoAgulha" placeholder="Cód. Ferramenta">
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Qtd de Agulhas </label>
+                                </h5>
+                            </div>
+
+
+                            <label for="ferramentaMalhadeiraQtdeAgulha"></label>
+                            <input type="text" maxlength="50" class="form-control" id="ferramentaMalhadeiraQtdeAgulha"
+                                name="ferramentaMalhadeiraQtdeAgulha" placeholder="Qtde de Agulhas">
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Tipo de Fio </label>
+                                </h5>
+                            </div>
+
+                            <label for="malhadeiraTipoFio"></label>
+                            <input type="text" maxlength="50" class="form-control" id="malhadeiraTipoFio"
+                                name="malhadeiraTipoFio" placeholder="Código">
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Ø Cabeçote </label>
+                                </h5>
+                            </div>
+
+                            <label for="ferramentaMalhadeiraDiametroCabecote"></label>
+                            <input type="number" class="form-control" id="ferramentaMalhadeiraDiametroCabecote"
+                                name="ferramentaMalhadeiraDiametroCabecote" placeholder="medidas em mm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIVIDER -->
+                <div class="vr m-4 bg-dark-subtle opacity-100"></div>
+
+                <div class="col-md-3">
+                    <div class="mb-5">
+                        <h4>
+                            <label> Máquina </label>
+                        </h4>
+                    </div>
+
+                    <div class="row g-3 justify-content-center">
+                        <div class="col">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Passo da Malha </label>
+                                </h5>
+                            </div>
+
+                            <div class="row g-2 justify-content-center">
+                                <div class="col-md-4">
+                                    <label for="malhadeiraLimMinPasso">Min</label>
+                                    <input type="number" class="form-control" id="malhadeiraLimMinPasso"
+                                        name="malhadeiraLimMinPasso" placeholder="Passo">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="malhadeiraLimMaxPasso">Max</label>
+                                    <input type="number" class="form-control" id="malhadeiraLimMaxPasso"
+                                        name="malhadeiraLimMaxPasso" placeholder="Passo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-1 mb-5 pt-3 border-top border-dark border-2">
+            <div class="mt-1 mb-5 pb-3">
+                <h3>
+                    <label> Especificação de Extrusão da Capa </label>
+                </h3>
+            </div>
+
+            <div class="row g-0 align-items-stretch">
+                <div class="col-md-5">
+                    <div class="mb-5">
+                        <h4>
+                            <label> Ferramentas </label>
+                        </h4>
+                    </div>
+
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Ø Pino Vácuo </label>
+                                </h5>
+                            </div>
+
+                            <label for="ferramentaCapaDiametroPinoVacuo"></label>
+                            <input type="text" class="form-control" id="ferramentaCapaDiametroPinoVacuo"
+                                name="ferramentaCapaDiametroPinoVacuo" placeholder="medidas em mm">
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Ø Pino Massa </label>
+                                </h5>
+                            </div>
+
+                            <label for="ferramentaCapaDiametroPinoMassa"></label>
+                            <input type="text" class="form-control" id="ferramentaCapaDiametroPinoMassa"
+                                name="ferramentaCapaDiametroPinoMassa" placeholder="medidas em mm">
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Ø Matriz </label>
+                                </h5>
+                            </div>
+
+                            <label for="ferramentaCapaDiametroMatriz"></label>
+                            <input type="text" class="form-control" id="ferramentaCapaDiametroMatriz"
+                                name="ferramentaCapaDiametroMatriz" placeholder="medidas em mm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIVIDER -->
+                <div class="vr m-3 bg-dark-subtle opacity-100"></div>
+
+                <div class="col-md-6">
+                    <div class="mb-5">
+                        <h4>
+                            <label> Material </label>
+                        </h4>
+                    </div>
+
+                    <div class="row g-3 justify-content-center align-items-end">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Código de Composto </label>
+                                </h5>
+                            </div>
+
+                            <div class="row g-3 justify-content-center">
+                                <div class="col">
+                                    <label for="capaCodigoComposto"></label>
+                                    <input type="text" maxlength="50" class="form-control" id="capaCodigoComposto"
+                                        name="capaCodigoComposto" placeholder="Cód. composto Capa">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Espessura da Parede </label>
+                                </h5>
+                            </div>
+
+                            <div class="row g-3 justify-content-center">
+                                <div class="col-md-6">
+                                    <label for="capaLimMinEspessuraParede">Min</label>
+                                    <input type="number" class="form-control" id="capaLimMinEspessuraParede"
+                                        name="capaLimMinEspessuraParede" placeholder="Medidas em mm">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="capaLimMaxEspessuraParede">Max</label>
+                                    <input type="number" class="form-control" id="capaLimMaxEspessuraParede"
+                                        name="capaLimMaxEspessuraParede" placeholder="Medidas em mm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-2 mt-5 justify-content-center">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <h5>
+                                    <label> Ø Externo </label>
+                                </h5>
+                            </div>
+
+                            <div class="row g-2 justify-content-center">
+                                <div class="col-md-4">
+                                    <label for="capaLimMinDiametroExterno">Min</label>
+                                    <input type="number" class="form-control" id="capaLimMinDiametroExterno"
+                                        name="capaLimMinDiametroExterno" placeholder="Medidas em mm">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="capaSpDiametroExterno">Desejável</label>
+                                    <input type="number" class="form-control" id="capaSpDiametroExterno"
+                                        name="capaSpDiametroExterno" placeholder="Medidas em mm">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="capaLimMaxDiametroExterno">Max</label>
+                                    <input type="number" class="form-control" id="capaLimMaxDiametroExterno"
+                                        name="capaLimMaxDiametroExterno" placeholder="Medidas em mm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-5 justify-content-center align-items-stretch">
+                <div class="mb-3">
+                    <h4>
+                        <label> Parâmetros de Máquinas </label>
+                    </h4>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="row g-1 justify-content-center">
+                        <div class="mb-3">
+                            <h5>
+                                <label> Toluol </label>
+                            </h5>
+                        </div>
+
+                        <div class="col">
+                            <label for="tuboToluol"></label>
+                            <input type="text" maxlength="50" class="form-control" id="tuboToluol" name="tuboToluol"
+                                placeholder="Descrição">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row g-1 justify-content-center">
+                        <div class="mb-3">
+                            <h5>
+                                <label> Temperatura da Borracha </label>
+                            </h5>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaLimMinTempBorracha">Min</label>
+                            <input type="number" class="form-control" id="capaLimMinTempBorracha"
+                                name="capaLimMinTempBorracha" placeholder="em Cº">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaSpTempBorracha">Desejável</label>
+                            <input type="number" class="form-control" id="capaSpTempBorracha" name="capaSpTempBorracha"
+                                placeholder="em Cº">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaLimMaxTempBorracha">Max</label>
+                            <input type="number" class="form-control" id="capaLimMaxTempBorracha"
+                                name="capaLimMaxTempBorracha" placeholder="em Cº">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row g-1 justify-content-center">
+                        <div class="mb-3">
+                            <h5>
+                                <label> Temperatura da Zona </label>
+                            </h5>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaLimMinZonaExtrusao">Min</label>
+                            <input type="number" class="form-control" id="capaLimMinZonaExtrusao"
+                                name="capaLimMinZonaExtrusao" placeholder="em Cº">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaSpZonaExtrusao">Desejável</label>
+                            <input type="number" class="form-control" id="capaSpZonaExtrusao" name="capaSpZonaExtrusao"
+                                placeholder="em Cº">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaLimMaxZonaExtrusao">Max</label>
+                            <input type="number" class="form-control" id="capaLimMaxZonaExtrusao"
+                                name="capaLimMaxZonaExtrusao" placeholder="em Cº">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row g-1 justify-content-center">
+                        <div class="mb-3">
+                            <h5>
+                                <label> Pressão do Vácuo </label>
+                            </h5>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaLimMinPressaoVacuo">Min</label>
+                            <input type="number" class="form-control" id="capaLimMinPressaoVacuo"
+                                name="capaLimMinPressaoVacuo" placeholder="Medidas em Bar">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaSpPressaoVacuo">Desejável</label>
+                            <input type="number" class="form-control" id="capaSpPressaoVacuo" name="capaSpPressaoVacuo"
+                                placeholder="Medidas em Bar">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaLimMaxPressaoVacuo">Max</label>
+                            <input type="number" class="form-control" id="capaLimMaxPressaoVacuo"
+                                name="capaLimMaxPressaoVacuo" placeholder="Medidas em Bar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-6 mt-5 justify-content-evenly">
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <h5>
+                            <label> Estearato de Zinco </label>
+                        </h5>
+                    </div>
+
+                    <div class="col">
+                        <label for="ferramentaCapaEstearatoZinco"></label>
+                        <input type="text" maxlength="50" class="form-control" id="ferramentaCapaEstearatoZinco"
+                            name="ferramentaCapaEstearatoZinco" placeholder="Descrição">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <h5>
+                            <label> Temperatura do Cabeçote </label>
+                        </h5>
+                    </div>
+
+                    <div class="row g-2 justify-content-center">
+                        <div class="col-md-4">
+                            <label for="capaLimMinCabecote">Min</label>
+                            <input type="number" class="form-control" id="capaLimMinCabecote" name="capaLimMinCabecote"
+                                placeholder="em Cº">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaSpCabecote">Desejável</label>
+                            <input type="number" class="form-control" id="capaSpCabecote" name="capaSpCabecote"
+                                placeholder="em Cº">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="capaLimMaxCabecote">Max</label>
+                            <input type="number" class="form-control" id="capaLimMaxCabecote" name="capaLimMaxCabecote"
+                                placeholder="em Cº">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

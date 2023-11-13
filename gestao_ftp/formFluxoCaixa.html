@@ -1,0 +1,110 @@
+<div class="container">
+    <form class="form-horizontal row g-4" id="formFluxoCaixa" name="formFluxoCaixa">
+        <div class="col-md-3">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id" placeholder="Número do ID" readonly>
+        </div>
+
+        <div class="col-md-3">
+            <label for="savType">Tipo de SAV</label>
+            <select id='savType' name='savType' class="form-select" aria-label="Tipo de SAV">
+                <option selected></option>
+                <option value="HORAS">HORAS</option>
+                <option value="FERRAMENTAL/PROCESSO">FERRAMENTAL/PROCESSO</option>
+                <option value="OUTROS">OUTROS</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label for="responsible">Responsável</label>
+            <select id='responsible' name='responsible' class="form-select" aria-label="Responsaveis">
+                <option selected></option>
+                <option value="ROGERIO">ROGÉRIO</option>
+                <option value="IGOR">IGOR</option>
+                <option value="THALITA">THALITA</option>
+                <option value="THIAGO">THIAGO</option>
+                <option value="JEFFERSON">JEFFERSON</option>
+                <option value="EDMILSON NERI">EDMILSON NERI</option>
+                <option value="MIRCIO">MIRCIO</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label for="sav">SAV</label>
+            <input type="text" class="form-control" id="sav" name="sav" placeholder="SAV">
+        </div>
+
+        <div class="col-md-3">
+            <label for="projectTitle">Título do Projeto</label>
+            <input type="text" class="form-control" id="projectTitle" name="projectTitle"
+                placeholder="Titulo do Projeto">
+        </div>
+
+        <div class="col-md-3">
+            <label for="client">Cliente</label>
+            <select id='client' name='client' class="form-select" aria-label="Cliente">
+                <option selected></option>
+                <option value="GENERAL MOTORS">GENERAL MOTORS</option>
+                <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+                <option value="MERCEDES-BENZ BRASIL">MERCEDES-BENZ BRASIL</option>
+                <option value="MERCEDES-BENZ ARGENTINA">MERCEDES-BENZ ARGENTINA</option>
+                <option value="STELLANTIS">STELLANTIS</option>
+                <option value="FCA">FCA</option>
+                <option value="DAF">DAF</option>
+                <option value="IVECO">IVECO</option>
+                <option value="CNH">CNH</option>
+                <option value="HPE">HPE</option>
+                <option value="IPA">IPA</option>
+                <option value="S-RIKO">S-RIKO</option>
+                <option value="VOLKSWAGEN CAMINHÕES (MAN)">VOLKSWAGEN CAMINHÕES (MAN)</option>
+                <option value="SCANIA">SCANIA</option>
+                <option value="VOLVO">VOLVO</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label for="endDate">Data de Encerramento</label>
+            <input type="date" class="form-control" id="endDate" name="endDate" placeholder="Data Encerramento">
+        </div>
+
+        <div class="col-md-3">
+            <label for="prolongEndDate">Prorrogar Data de Encerramneto</label>
+            <select id='prolongEndDate' name='prolongEndDate' class="form-select"
+                aria-label="Prorrogar Data Encerramento">
+                <option selected></option>
+                <option value="SIM">SIM</option>
+                <option value="NAO">NÃO</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label for="newDate">Nova Data</label>
+            <input type="date" class="form-control" id="newDate" name="newDate" placeholder="Nova Data">
+        </div>
+
+        <div class="col-md-3">
+            <label for="monthYear">Mês / Ano</label>
+            <input type="month" class="form-control" id="monthYear" name="monthYear" placeholder="Mês / Ano">
+        </div>
+
+        <div class="col-md-3">
+            <label for="expenditureProjection">Projeção de Gastos</label>
+            <input type="text" class="form-control" id="expenditureProjection" name="expenditureProjection"
+                data-type="currency" placeholder="R$1,000,000.00">
+
+            <!-- <input type="hidden" class="form-control" id="expenditureProjection" name="expenditureProjection"> -->
+        </div>
+
+        <div class="col-md-3">
+            <label for="orderBalance">Saldo para Pedido</label>
+            <input type="text" class="form-control" id="orderBalance" name="orderBalance" data-type="currency"
+                placeholder="R$1,000,000.00">
+
+            <!-- <input type="hidden" class="form-control" id="orderBalance" name="orderBalance"> -->
+        </div>
+    </form>
+</div>
+
+<!-- LOGICA DA PAGINA -->
+<script type="module" src="js/pages/formFluxoCaixa.js"></script>
+<script src="js/custom/currencyInputType.js"></script>

@@ -1,0 +1,47 @@
+<div class="row mt-4" >
+    <form class="form-horizontal" id="formUsuarios">
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="tara">Id:</label>
+                <input type="number" class="form-control" id="id" name="id" placeholder="id" >
+            </div>
+            <div class="col-md-12">
+                <label for="description">Nome:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="description" >
+            </div>
+            <div class="col-md-12">
+                <label for="email">E-mail:</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="email" >
+            </div>
+            <div class="col-md-12">
+                <label for="password">Senha:</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="password" >
+            </div>
+            <div class="col-md-12" style="display: none;">
+                <label for="firstAccess">Primeiro Acesso:</label>
+                <input type="text" class="form-control" id="firstAccess" name="firstAccess" placeholder="primeiro acesso" readonly value="null">
+            </div>
+        </div>
+    </form>
+    <form class="form-horizontal" id="permission" name="permission">
+
+        <div class="panel panel-info" id='painelPermissoes' name='painelPermissoes' style="padding-top: 1%;border-color: blanchedalmond;border: 1cm;"> 
+            <div class="panel-heading " >Permissões <button type='button' class="btn btn-warning" onclick="javascript:fMarkAll()"> Marcar\Desmarcar Todos</button></div>
+            <div class="panel-body">
+                <div class="row g-3" >
+                    <div class="col-md-6" id="checkPermissionsImpar" name="checkPermissionsImpar">
+   
+                    </div>
+                    <div class="col-md-6" id="checkPermissionsPar" name="checkPermissionsPar"> 
+                    </div>
+               </div>
+            </div>
+          </div>
+        
+    </form>
+</div>
+<script>
+    fBuildingCheck('checkPermissionsPar','checkPermissionsImpar');
+    
+</script>
