@@ -12,8 +12,6 @@
 * https://getbootstrap.com/docs/5.0/getting-started/introduction/
 * https://plugins.jquery.com/
 * https://datatables.net/
-* Planilha de FTP da Termoformadora
-* Planilha de Spec Mangueiras
 
 ## PREMISSAS PARA RODAR ESTE PROJETO
 * Possuir um servidor apache ou um server que interprete as chamadas de requisição feitas no jquery e para que não seja bloqueada a requisição.
